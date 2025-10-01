@@ -16,13 +16,21 @@ const App = () => {
     return tasks;
   }
 
+  function toggleComplete(id) {
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
+  }
+
+  function deleteTask(id) {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  }
+
   return (
     <div className='app-container'>
       <Header />
-      <div>
+      <main className='main'>
         <TaskForm addTask={addTask} />
-        <TaskList tasks={tasks} />
-      </div>
+        <TaskList tasks={tasks} onToggle={toggleComplete} onDelete={deleteTask} />
+      </main>
     </div>
   );
 };
