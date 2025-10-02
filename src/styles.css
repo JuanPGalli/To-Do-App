@@ -111,6 +111,33 @@ padding-top: 3rem;
   text-decoration: line-through;
   color: #6b7280;
 }
+
+.filters{
+  display:flex;
+  gap:8px;
+  margin-bottom: 1rem;
+}
+
+.filter-btn{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid #e6eef2;
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.filter-btn.active{
+  background:#18434e;
+  color:white;
+  border-color:transparent;
+}
+
+.btn[disabled]{
+  opacity:0.6;
+  cursor:not-allowed;
+}
+
 @media (max-width: 780px) {
   .main{
   margin-left: 1rem;
