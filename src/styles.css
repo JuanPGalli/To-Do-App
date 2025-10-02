@@ -79,8 +79,8 @@ padding-top: 3rem;
 
 .empty{
   text-align:center;
-  color:var(#6b7280);
   padding:12px 0;
+  font-size: 2rem;
 }
 
 .task-list{
@@ -104,6 +104,7 @@ padding-top: 3rem;
 .task-text{
   flex:1;
   word-break:break-word;
+  font-size: 1.2rem;
 }
 
 .task-item.completed .task-text{
@@ -121,6 +122,12 @@ padding-top: 3rem;
   .task-form .input,
   .task-form .btn {
     width: 100%;
+  }
+  .task-text{
+    font-size: 1.15rem;
+  }
+  .empty{
+    font-size: 1.15rem;
   }
 
 }

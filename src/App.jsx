@@ -1,19 +1,41 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 
+const STORAGE_KEY = 'tasksLocalKey';
+
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        setTasks(JSON.parse(raw));
+      }
+    } catch (error) {
+      console.error('Error reading LocalStorage', error);
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    } catch (err) {
+      console.error('Error writing localStorage', err);
+    }
+  }, [tasks]);
+
   function addTask(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return false;
     const newTask = {
       id: Date.now().toString() + Math.random().toString(36).slice(2),
-      text: text.trim(),
+      text: trimmed,
       completed: false,
     };
     setTasks((prev) => [newTask, ...prev]);
-    return tasks;
+    return true;
   }
 
   function toggleComplete(id) {
