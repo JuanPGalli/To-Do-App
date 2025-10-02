@@ -19,8 +19,8 @@ padding-top: 3rem;
 
 .main{
   background:#05668d;
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
   padding:clamp(20px, 5vw, 50px);
   border-radius:10px;
   box-shadow: 0 6px 18px rgba(6, 18, 34, 0.06);
